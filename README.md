@@ -2,28 +2,24 @@
 
 # Awesome books Project 
 
-> This webpage is about .... 
-
-## Live Demo
-
-https://cmolinan.github.io/xxxxxxxxxxxx
-
-## Video preview
-
-https://www.loom.com/share/xxxxxxxxxxxxxxx
+>  Basic website that allows users to add/remove books from a list
 
 ## Built With
 
-- HTML / CSS (Flexbox-Grid) / JavaScript (Objects and Classes)
+- HTML / CSS / JavaScript (Objects and Classes)
 
 ## Getting Started
 
 - To get a local copy up, clone the repo like this: 
-   git clone git@github.com:cmolinan/xxxxxx
+   git clone git@github.com:cmolinan/awesome-books.git
 
 ## Authors
 - Carlos Molina
   GitHub: https://github.com/cmolinan
+
+- Carlos Vivas
+  GitHub: [@carlosmuerto](https://github.com/carlosmuerto)
+  LinkedIn: [LinkedIn](https://www.linkedin.com/in/carlos-vivas-818ab831/)
 
 ## 🤝 Contributing
 
@@ -37,7 +33,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments 
 
-- This webpage is based on  xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- This webpage is based on a Microverse exercise
 
 
 ## 📝 License

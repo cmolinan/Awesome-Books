@@ -76,6 +76,7 @@ function CreateBookItemHTML(id, title, author) {
   const bookTitleElement = document.createElement('p');
   const bookAuthorElement = document.createElement('p');
   const deleteBookBtn = document.createElement('button');
+  const hrElement = document.createElement('hr');
 
   divContainer.id = `Book-${id}`;
 
@@ -93,6 +94,7 @@ function CreateBookItemHTML(id, title, author) {
   divContainer.appendChild(bookTitleElement);
   divContainer.appendChild(bookAuthorElement);
   divContainer.appendChild(deleteBookBtn);
+  divContainer.appendChild(hrElement);
 
   return divContainer;
 }

@@ -1,6 +1,6 @@
 ## Copyright 2022, Carlos Molina
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this WEBPAGE and associated documentation files, to deal in the WEBPAGE without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the [APP TYPE], and to permit persons to whom the WEBPAGE is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this WEBPAGE and associated documentation files, to deal in the WEBPAGE without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Webpage, and to permit persons to whom the WEBPAGE is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software
 

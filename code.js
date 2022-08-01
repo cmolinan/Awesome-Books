@@ -1,62 +1,59 @@
-
-// Books information
-// const info = {
-//   books: [
-//   {
-//     id: 1,
-//     title: 'How to programming for Dummies', 
-//     author: 'Wallace Wang'
-//   },
-//   {
-//     id: 2,
-//     title: 'The Stalker and the Programmer Vampire', 
-//     author: 'Ere Reyes Moonlight'
-//   }
-// ]  
-// }
-
-const info = {
+const library = {
   books: [
-  {
-    id: 0,
-    title: '', 
-    author: ''
-  }
-]  
+    {
+      id: 0,
+      title: 'How to programming for Dummies',
+      author: 'Wallace Wang',
+    },
+    {
+      id: 1,
+      title: 'The Stalker and the Programmer Vampire',
+      author: 'Ere Reyes Moonlight',
+    },
+  ],
+};
+
+const listOfBooksElement = document.querySelector('#list-books .list-of-books');
+
+function deleteBookElement(parentContainer, id) {
+  parentContainer.remove();
+  library.books = library.books.filter((book) => book.id !== id);
+  console.table(library.books);
 }
 
-//Books
-const theBooks = info.books;
-const queryBookListing = document.getElementById ('listing');
+function CreateBookItemHTML(id, title, author) {
+  const divContainer = document.createElement('div');
+  const bookTitleElement = document.createElement('p');
+  const bookAuthorElement = document.createElement('p');
+  const deleteBookBtn = document.createElement('button');
 
+  divContainer.id = `Book-${id}`;
 
-function createBookListing() {  
-  if (theBooks[0].id === 0) {
-    queryBookListing.style.display="none";
-    return;}
+  bookTitleElement.innerText = title;
+  bookTitleElement.classList.add('book-title');
+  bookAuthorElement.innerText = author;
+  bookTitleElement.classList.add('book-author');
 
-  theBooks.forEach( (data) => {  
-    queryBookListing.innerHTML += `<div id="Book ${data.id}">
-    <p id="book-title-${data.id}">${data.title}</p>
-    <p id="book-author-${data.id}">${data.author}</p>
-    <button onclick="removeBook" >Remove1</button>
-    <hr>
-  </div>
+  deleteBookBtn.innerText = 'Remove';
 
-  `;
- }
- )
+  deleteBookBtn.addEventListener('click', () => {
+    deleteBookElement(divContainer, id);
+  });
+
+  divContainer.appendChild(bookTitleElement);
+  divContainer.appendChild(bookAuthorElement);
+  divContainer.appendChild(deleteBookBtn);
+
+  return divContainer;
 }
 
-window.onload = function() {
+function createBookListing() {
+  library.books.forEach((book) => {
+    listOfBooksElement.appendChild(CreateBookItemHTML(book.id, book.title, book.author));
+  });
+}
+function init() {
   createBookListing();
-};
+}
 
-
-// document.querySelector('form').addEventListener('submit',readForm);
-
-function formSubmit(){
-  const formData = new FormData(e.target);
-  // Now you can use formData.get('foo'), for example.
-  // Don't forget e.preventDefault() if you want to stop normal form .submission
-};
+window.addEventListener('load', init);

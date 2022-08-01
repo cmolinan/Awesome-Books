@@ -1,60 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Awesome Books</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<title>Document</title>
 </head>
-<body">
-  <main>
 
-    <header></header>
-    <section id="list-books" style="padding-left: 40px;">
-      <h1>AWESOME BOOKS</h1>
-      <div id="listing">
-        <!-- <div id="Book 1">
-          <p id="book-title-1">How to programming for Dummies</p>
-          <p id="book-author-1">Wallace Wang</p>
-          <button onclick="" >Remove</button>
-          <hr>
-        </div>
+<body>
+	<header>header</header>
+	<section id="list-books">
+		<h1>AWESOME BOOKS</h1>
+		<div class="list-of-books">
+		</div>
+	</section>
 
-        <div id="Book 2">
-          <p id="book-title-2">The Stalker and the Programmer Vampire</p>
-          <p id="book-author-2">Ere Reyes Moonlight</p>
-          <button onclick="" >Remove</button>
-          <hr>
-        </div> -->
-      </div>
-    </section>
-    
-    <section id="add-book">
-      <form  class="add-form" onsubmit="formSubmit()">
-        <ul class="ul-add-form" style="list-style-type: none;">
-          <li>
-          <label><input class="title-input" type="text" name="title" placeholder="Title"
-            maxlength="30" required /></label>
-          </li> 
-          <li>
-          <label><input class="author-input" type="text" name="author" placeholder="Author"
-              maxlength="30" required /></label>
-          </li>
-          <li>
-            <button class="contact-button" onsubmit type="submit" >Add</button>                
-          </li>
-        </ul>
-      </form>
-    </section>
+	<section id="add-book">
+		<h2>Add book Form</h2>
+		<form id="add-book-form">
+			<ul class="ul-add-form">
+				<li>
+					<label><input class="title-input" type="text" name="title" placeholder="Title" maxlength="30"
+							required /></label>
+				</li>
+				<li>
+					<label><input class="author-input" type="text" name="author" placeholder="Author" maxlength="30"
+							required /></label>
+				</li>
+				<li>
+					<button class="contact-button" onsubmit type="submit">Add</button>
+				</li>
+			</ul>
+		</form>
+	</section>
+	<!--
+	<section id="contact-page">
+	</section>
+-->
+	<footer>
+		footer
+	</footer>
 
-    <section id="contact-page">
-    </section>
-
-    <footer>
-
-    </footer>
-
-  </main>
-  <script src="code.js"></script>
+	<script src="code.js"></script>
 </body>
+
 </html>

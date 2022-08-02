@@ -1,12 +1,81 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Verdana', sans-serif;
+  font-style: normal;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.list-of-books {
+  background-color: white;
+}
+
+div.list-of-books > div:nth-of-type(odd) {
+  background: lightgray;
 }
 
 #list-books .list-of-books {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   align-items: stretch;
   justify-content: start;
+  border: 1px solid black;
+}
+
+#list-books {
+  text-align: center;
+  width: 45vw;
+  margin: 5% auto 3% auto;
+  min-width: 500px;
+  background-color: whitesmoke;
+}
+
+#list-books h1 {
+  font-size: 24px;
+  padding: 10px 0;
+  background-color: white;
+}
+
+.books-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.books-details button {
+  color: black;
+  box-shadow: 3px 3px gray;
+  margin-left: auto;
+  width: 16%;
+  min-width: 60px;
+}
+
+#add-book {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+  justify-content: start;
+  text-align: center;
+  width: 80vw;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+#add-book-btn {
+  box-shadow: 3px 3px gray;
+  width: 16%;
+  min-width: 60px;
+  max-width: 80px;
+  margin-top: 5px;
+}
+
+#title-input,
+#author-input {
+  margin: 3px;
+  height: 25px;
 }

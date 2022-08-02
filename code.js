@@ -1,65 +1,8 @@
-let library = {
-  nextId: 0, // return to 0;
-  books: [],
-  add: (title, author) => {
-    const newBook = {
-      id: library.nextId,
-      title,
-      author,
-    };
+import Library from './js/library.js';
 
-    library.books.push(newBook);
-
-    library.nextId += 1;
-    return newBook;
-  },
-  remove: (id) => {
-    library.books = library.books.filter((book) => book.id !== id);
-  },
-};
+const library = new Library();
 
 // Book local storage
-
-/* Check for storage Availability copy form documentation */
-function storageAvailable(type) {
-  let storage;
-  try {
-    storage = window[type];
-    const x = '__storage_test__';
-    storage.setItem(x, x);
-    storage.removeItem(x);
-    return true;
-  } catch (e) {
-    return e instanceof DOMException && (
-      // everything except Firefox
-      e.code === 22
-      // Firefox
-      || e.code === 1014
-      // test name field too, because code might not be present
-      // everything except Firefox
-      || e.name === 'QuotaExceededError'
-      // Firefox
-      || e.name === 'NS_ERROR_DOM_QUOTA_REACHED')
-      // acknowledge QuotaExceededError only if there's something already stored
-      && (storage && storage.length !== 0);
-  }
-}
-
-function getStoreFormData(key = 'Library-books-data') {
-  return JSON.parse(localStorage.getItem(key));
-}
-
-function updateStoreFormData(formObj, key = 'Library-books-data') {
-  localStorage.setItem(
-    key,
-    JSON.stringify(formObj),
-  );
-}
-
-function initBookStorage() {
-  if (!storageAvailable('localStorage')) return;
-  library = Object.assign(library, getStoreFormData());
-}
 
 // BOOK ELEMENT
 
@@ -68,22 +11,19 @@ const listOfBooksElement = document.querySelector('#list-books .list-of-books');
 function deleteBookElement(parentContainer, id) {
   parentContainer.remove();
   library.remove(id);
-  updateStoreFormData(library);
 }
 
 function CreateBookItemHTML(id, title, author) {
   const divContainer = document.createElement('div');
-  const bookTitleElement = document.createElement('p');
-  const bookAuthorElement = document.createElement('p');
+  const bookTitleAndAuthorElement = document.createElement('p');
   const deleteBookBtn = document.createElement('button');
-  const hrElement = document.createElement('hr');
 
   divContainer.id = `Book-${id}`;
+  divContainer.classList.add('books-details');
 
-  bookTitleElement.innerText = title;
-  bookTitleElement.classList.add('book-title');
-  bookAuthorElement.innerText = author;
-  bookTitleElement.classList.add('book-author');
+  bookTitleAndAuthorElement.innerText = `"${title}" by ${author}`;
+  bookTitleAndAuthorElement.classList.add('book-title');
+  bookTitleAndAuthorElement.classList.add('book-author');
 
   deleteBookBtn.innerText = 'Remove';
 
@@ -91,10 +31,8 @@ function CreateBookItemHTML(id, title, author) {
     deleteBookElement(divContainer, id);
   });
 
-  divContainer.appendChild(bookTitleElement);
-  divContainer.appendChild(bookAuthorElement);
+  divContainer.appendChild(bookTitleAndAuthorElement);
   divContainer.appendChild(deleteBookBtn);
-  divContainer.appendChild(hrElement);
 
   return divContainer;
 }
@@ -117,8 +55,7 @@ const bookAuthorInput = addBookForm.querySelector('#author-input');
 
 function addBook(e) {
   e.preventDefault();
-  AddBookToContainerElement(library.add(bookTitleInput.value, bookAuthorInput.value));
-  updateStoreFormData(library);
+  AddBookToContainerElement(library.createBookAndAdd(bookTitleInput.value, bookAuthorInput.value));
   return false;
 }
 
@@ -129,8 +66,8 @@ function addBookButtonLIstener() {
 // INITS
 
 function init() {
-  initBookStorage();
-  if (library) createBookListing();
+  library.initBookStorage();
+  createBookListing();
   addBookButtonLIstener();
 }
 

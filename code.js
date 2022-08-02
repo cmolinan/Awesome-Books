@@ -15,17 +15,15 @@ function deleteBookElement(parentContainer, id) {
 
 function CreateBookItemHTML(id, title, author) {
   const divContainer = document.createElement('div');
-  const bookTitleElement = document.createElement('p');
-  const bookAuthorElement = document.createElement('p');
+  const bookTitleAndAuthorElement = document.createElement('p');
   const deleteBookBtn = document.createElement('button');
-  const hrElement = document.createElement('hr');
 
   divContainer.id = `Book-${id}`;
+  divContainer.classList.add('books-details');
 
-  bookTitleElement.innerText = title;
-  bookTitleElement.classList.add('book-title');
-  bookAuthorElement.innerText = author;
-  bookTitleElement.classList.add('book-author');
+  bookTitleAndAuthorElement.innerText = `"${title}" by ${author}`;
+  bookTitleAndAuthorElement.classList.add('book-title');
+  bookTitleAndAuthorElement.classList.add('book-author');
 
   deleteBookBtn.innerText = 'Remove';
 
@@ -33,10 +31,8 @@ function CreateBookItemHTML(id, title, author) {
     deleteBookElement(divContainer, id);
   });
 
-  divContainer.appendChild(bookTitleElement);
-  divContainer.appendChild(bookAuthorElement);
+  divContainer.appendChild(bookTitleAndAuthorElement);
   divContainer.appendChild(deleteBookBtn);
-  divContainer.appendChild(hrElement);
 
   return divContainer;
 }

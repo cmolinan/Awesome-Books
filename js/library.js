@@ -31,8 +31,10 @@ class Library {
 
   getStoreFormData() {
     const obj = JSON.parse(localStorage.getItem('Library-books-data'));
-    this.books = obj.books;
-    this.nextId = obj.nextId;
+    if (obj) {
+      this.books = obj?.books;
+      this.nextId = obj?.nextId;
+    }
   }
 
   updateStoreFormData() {

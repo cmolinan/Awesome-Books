@@ -10,9 +10,26 @@
 </head>
 
 <body>
-	<header></header>
+	<header>		
+		<nav class="web-nav">
+			<a href="index.html" class="logo-img">Awesome Books</a>
+
+			<ul>
+				<li><a id="menuList" href="#">List</a></li>
+				<li>|</li>
+				<li><a id="menuAdd" href="#">Add new</a></li>
+				<li>|</li>
+				<li><a href="#" id="menuContact">Contact</a></li>
+				
+			</ul>
+		</nav>
+		<div id="date-time">
+			March 19th, 2022, 9:25:32pm
+		</div>
+
+	</header>
 	<section id="list-books">
-		<h1>AWESOME BOOKS</h1>
+		<h1>All Awesome Books</h1>
 		<div class="list-of-books">
 		</div>
 
@@ -24,11 +41,11 @@
 			<ul class="ul-add-form">
 				<li>
 					<label for="title-input"></label>
-					<input id="title-input" type="text" name="title" placeholder="Title" maxlength="30" required />
+					<input id="title-input" type="text" name="title" placeholder="Title" maxlength="40" required />
 				</li>
 				<li>
 					<label for="author-input"></label>
-					<input id="author-input" type="text" name="author" placeholder="Author" maxlength="30" required />
+					<input id="author-input" type="text" name="author" placeholder="Author" maxlength="40" required />
 				</li>
 				<li>
 					<button id="add-book-btn" type="submit">Add</button>
@@ -37,10 +54,25 @@
 		</form>
 	</section>
 
-	<footer>
+	<section id="contact-section">
+		<h1>Contact Information</h1>
+		<p>Do you have any questions or you just want to say "Hello"?<br>
+		You can reach out us !<br><br>
+		&emsp;* Our e-mail: mail@the-mail.com<br>
+		&emsp;* Our phone number: 001-703-5210210<br>
+		&emsp;* Our address: Street 22, 840035, Los Angeles, California
+	</p>
+
+		<p></p>
+	</section>
+
+
+	<footer class="footer">		
+		Copyright 2022 - C.Vivas/C.Molina @Microverse
 	</footer>
 
 	<script src="code.js" type="module"></script>
+
 </body>
 
 </html>

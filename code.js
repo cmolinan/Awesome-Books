@@ -63,12 +63,71 @@ function addBookButtonLIstener() {
   addBookForm.addEventListener('submit', addBook);
 }
 
+function refreshTime() {
+  const timeDisplay = document.getElementById('date-time');
+  const dateString = new Date().toLocaleString('en-us');
+  const formattedString = dateString.replace(', ', ', ');
+  timeDisplay.textContent = formattedString;
+}
+setInterval(refreshTime, 1000);
+
+const queryListBooks = document.getElementById('list-books');
+const queryAddBook = document.getElementById('add-book');
+const queryContact = document.getElementById('contact-section');
+
+const queryMenuList = document.getElementById('menuList');
+const queryMenuAdd = document.getElementById('menuAdd');
+const queryMenuContact = document.getElementById('menuContact');
+
+function clickOnList() {
+  if (queryListBooks.style.display === 'none') {
+    queryListBooks.style.display = 'flex';
+    queryAddBook.style.display = 'none';
+    queryContact.style.display = 'none';
+  }
+}
+
+function clickOnAdd() {
+  if (queryAddBook.style.display === 'none') {
+    queryListBooks.style.display = 'none';
+    queryAddBook.style.display = 'flex';
+    queryContact.style.display = 'none';
+  }
+}
+
+function clickOnContact() {
+  if (queryContact.style.display === 'none') {
+    queryListBooks.style.display = 'none';
+    queryAddBook.style.display = 'none';
+    queryContact.style.display = 'block';
+  }
+}
+
+function addMenusListeners() {
+  queryMenuList.addEventListener('click', clickOnList);
+  queryMenuAdd.addEventListener('click', clickOnAdd);
+  queryMenuContact.addEventListener('click', clickOnContact);
+}
+
+// const getOrdinalNum = (number) => {
+//   let selector;
+//   if (number <= 0) {
+//     selector = 4;
+//   } else if ((number > 3 && number < 21) || number % 10 > 3) {
+//     selector = 0;
+//   } else {
+//     selector = number % 10;
+//   }
+//   return number + ['th', 'st', 'nd', 'rd', ''][selector];
+// };
+
 // INITS
 
 function init() {
   library.initBookStorage();
   createBookListing();
   addBookButtonLIstener();
+  addMenusListeners();
 }
 
 window.addEventListener('load', init);

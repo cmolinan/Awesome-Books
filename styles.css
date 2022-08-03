@@ -1,12 +1,73 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Verdana', sans-serif;
   font-style: normal;
 }
 
+body {
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
 ul {
   list-style-type: none;
+}
+
+.web-nav li {
+  margin: 10px 0 10px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.web-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5% auto 0 auto;
+  width: 45vw;
+  min-width: 500px;
+  height: 25px;
+  border: black 1px solid;
+}
+
+.web-nav ul {
+  display: flex;
+  flex-direction: row;
+  padding-inline-start: 0;
+  margin: 0 0 0 auto;
+}
+
+.web-nav a {
+  margin: 0 10px 0 10px;
+  color: #333;
+  transition: font-weight 0.5s ease-in-out;
+}
+
+.web-nav a.active {
+  color: blue;
+  font-weight: bold;
+}
+
+.web-nav a:hover {
+  color: blue;
+}
+
+#date-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0 auto;
+  width: 45vw;
+  min-width: 500px;
+  padding: 5px;
+  font-size: 12px;
 }
 
 .list-of-books {
@@ -23,18 +84,19 @@ div.list-of-books > div:nth-of-type(odd) {
   align-items: stretch;
   justify-content: start;
   border: 1px solid black;
+  font-size: 14px;
 }
 
 #list-books {
   text-align: center;
   width: 45vw;
-  margin: 5% auto 3% auto;
+  margin: 1% auto 3% auto;
   min-width: 500px;
   background-color: whitesmoke;
 }
 
 #list-books h1 {
-  font-size: 24px;
+  font-size: 22px;
   padding: 10px 0;
   background-color: white;
 }
@@ -55,14 +117,15 @@ div.list-of-books > div:nth-of-type(odd) {
 }
 
 #add-book {
-  display: flex;
+  /* display: flex; */
+  display: none;
   flex-direction: column;
   gap: 10px;
   align-items: stretch;
   justify-content: start;
   text-align: center;
   width: 80vw;
-  margin: 0 auto;
+  margin: 5% auto 5% auto;
   font-size: 12px;
 }
 
@@ -78,4 +141,33 @@ div.list-of-books > div:nth-of-type(odd) {
 #author-input {
   margin: 3px;
   height: 25px;
+  width: 50%;
+  max-width: 280px;
+}
+
+#contact-section {
+  display: none;
+  text-align: center;
+  width: 45vw;
+  margin: 4% auto 8% auto;
+  min-width: 500px;
+}
+
+#contact-section p {
+  margin-top: 8%;
+  font-size: 14px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0% auto 5% auto;
+  width: 45vw;
+  min-width: 500px;
+  height: 30px;
+  border: black 1px solid;
+  font-size: 12px;
+  padding-left: 10px;
 }

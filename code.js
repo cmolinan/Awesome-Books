@@ -63,12 +63,80 @@ function addBookButtonLIstener() {
   addBookForm.addEventListener('submit', addBook);
 }
 
+function refreshTime() {
+  const timeDisplay = document.getElementById('date-time');
+  const dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  };
+  const dateString = new Date().toLocaleString('en-us', dateOptions);
+  timeDisplay.textContent = dateString;
+}
+
+function initTime() {
+  refreshTime();
+  setInterval(refreshTime, 1000);
+}
+
+const queryListBooks = document.getElementById('list-books');
+const queryAddBook = document.getElementById('add-book');
+const queryContact = document.getElementById('contact-section');
+
+const queryMenuList = document.getElementById('menuList');
+const queryMenuAdd = document.getElementById('menuAdd');
+const queryMenuContact = document.getElementById('menuContact');
+
+function removeActiveLink() {
+  queryMenuList.classList.remove('active');
+  queryMenuAdd.classList.remove('active');
+  queryMenuContact.classList.remove('active');
+}
+
+function clickOnList(e) {
+  e.preventDefault();
+  removeActiveLink();
+  e.target.classList.add('active');
+  queryListBooks.style.display = 'block';
+  queryAddBook.style.display = 'none';
+  queryContact.style.display = 'none';
+}
+
+function clickOnAdd(e) {
+  e.preventDefault();
+  removeActiveLink();
+  e.target.classList.add('active');
+  queryListBooks.style.display = 'none';
+  queryAddBook.style.display = 'block';
+  queryContact.style.display = 'none';
+}
+
+function clickOnContact(e) {
+  e.preventDefault();
+  removeActiveLink();
+  e.target.classList.add('active');
+  queryListBooks.style.display = 'none';
+  queryAddBook.style.display = 'none';
+  queryContact.style.display = 'block';
+}
+
+function addMenusListeners() {
+  queryMenuList.addEventListener('click', clickOnList);
+  queryMenuAdd.addEventListener('click', clickOnAdd);
+  queryMenuContact.addEventListener('click', clickOnContact);
+}
+
 // INITS
 
 function init() {
   library.initBookStorage();
   createBookListing();
   addBookButtonLIstener();
+  addMenusListeners();
+  initTime();
 }
 
 window.addEventListener('load', init);

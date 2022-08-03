@@ -47,6 +47,12 @@ ul {
 .web-nav a {
   margin: 0 10px 0 10px;
   color: #333;
+  transition: font-weight 0.5s ease-in-out;
+}
+
+.web-nav a.active {
+  color: blue;
+  font-weight: bold;
 }
 
 .web-nav a:hover {

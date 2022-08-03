@@ -83,25 +83,34 @@ const queryMenuList = document.getElementById('menuList');
 const queryMenuAdd = document.getElementById('menuAdd');
 const queryMenuContact = document.getElementById('menuContact');
 
+function removeActiveLink() {
+  queryMenuList.classList.remove('active');
+  queryMenuAdd.classList.remove('active');
+  queryMenuContact.classList.remove('active');
+}
+
 function clickOnList(e) {
-  console.log(e.target);
   e.preventDefault();
+  removeActiveLink();
+  e.target.classList.add('active');
   queryListBooks.style.display = 'block';
   queryAddBook.style.display = 'none';
   queryContact.style.display = 'none';
 }
 
 function clickOnAdd(e) {
-  console.log(e.target);
   e.preventDefault();
+  removeActiveLink();
+  e.target.classList.add('active');
   queryListBooks.style.display = 'none';
   queryAddBook.style.display = 'block';
   queryContact.style.display = 'none';
 }
 
 function clickOnContact(e) {
-  console.log(e.target);
   e.preventDefault();
+  removeActiveLink();
+  e.target.classList.add('active');
   queryListBooks.style.display = 'none';
   queryAddBook.style.display = 'none';
   queryContact.style.display = 'block';

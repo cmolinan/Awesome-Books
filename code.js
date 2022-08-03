@@ -65,9 +65,16 @@ function addBookButtonLIstener() {
 
 function refreshTime() {
   const timeDisplay = document.getElementById('date-time');
-  const dateString = new Date().toLocaleString('en-us');
-  const formattedString = dateString.replace(', ', ', ');
-  timeDisplay.textContent = formattedString;
+  const dateOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  };
+  const dateString = new Date().toLocaleString('en-us', dateOptions);
+  timeDisplay.textContent = dateString;
 }
 
 function initTime() {
@@ -121,18 +128,6 @@ function addMenusListeners() {
   queryMenuAdd.addEventListener('click', clickOnAdd);
   queryMenuContact.addEventListener('click', clickOnContact);
 }
-
-// const getOrdinalNum = (number) => {
-//   let selector;
-//   if (number <= 0) {
-//     selector = 4;
-//   } else if ((number > 3 && number < 21) || number % 10 > 3) {
-//     selector = 0;
-//   } else {
-//     selector = number % 10;
-//   }
-//   return number + ['th', 'st', 'nd', 'rd', ''][selector];
-// };
 
 // INITS
 
